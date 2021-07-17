@@ -9,7 +9,7 @@ export default function EachPostSM({ }: Props): ReactElement {
         <li className="last-post">
             <div className="image">
                 <a href="post-default.html">
-                    <img src="assets/img/latest/1.jpg" alt="..." />
+                    <img src="/assets/img/3.jpg" alt="..." />
                 </a>
             </div>
             <div className="nb">1</div>

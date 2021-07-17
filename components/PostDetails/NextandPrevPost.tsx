@@ -13,7 +13,7 @@ export default function NextandPrevPost({ }: Props): ReactElement {
                         <div className="small-post">
                             <div className="image">
                                 <a href="post-default.html">
-                                    <img src="assets/img/latest/1.jpg" alt="..." />
+                                    <img src="/assets/img/3.jpg" alt="..." />
                                 </a>
                             </div>
                             <div className="content">
@@ -32,7 +32,7 @@ export default function NextandPrevPost({ }: Props): ReactElement {
                         <div className="small-post">
                             <div className="image">
                                 <a href="post-default.html">
-                                    <img src="assets/img/blog/2.jpg" alt="..." />
+                                    <img src="/assets/img/3.jpg" alt="..." />
                                 </a>
                             </div>
                             <div className="content">

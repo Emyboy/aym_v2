@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d993181e-ea94-48b7-9ee7-a2d90dc3df12/deploy-status)](https://app.netlify.com/sites/africanyouthmind/deploys)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

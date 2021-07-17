@@ -8,14 +8,14 @@ export default function PostBody({}: Props): ReactElement {
     return (
         <div className="post-single">
             <div className="post-single-image">
-                <img src="/../assets/img/blog/1.jpg" alt="" />
+                <img src="/assets/img/3.jpg" alt="" />
             </div>
             <div className="post-single-content">
                 <a href="blog-grid.html" className="categorie">travel</a>
                 <h4>What the secrets you will know about jordan petra if visit it one day? </h4>
                 <div className="post-single-info">
                     <ul className="list-inline">
-                        <li><a href="author.html"><img src="assets/img/author/1.jpg" alt="" /></a></li>
+                        <li><a href="author.html"><img src="/assets/img/1.jpg" alt="" /></a></li>
                         <li><a href="author.html">David Smith</a> </li>
                         <li className="dot"></li>
                         <li>January 15, 2021</li>
@@ -47,7 +47,7 @@ export default function PostBody({}: Props): ReactElement {
                 <div className="row">
                     <div className="col-md-12 ">
                         <div className="image">
-                            <img src="assets/img/blog/2.jpg" alt="" />
+                            <img src="/assets/img/3.jpg" alt="" />
                             <p>Caption can be used to add info</p>
                         </div>
                     </div>
@@ -91,13 +91,13 @@ export default function PostBody({}: Props): ReactElement {
                 <div className="row">
                     <div className="col-md-6 ">
                         <div className="image">
-                            <img src="assets/img/blog/21.jpg" alt="" />
+                            <img src="/assets/img/3.jpg" alt="" />
                             <p>Caption can be used to add info</p>
                         </div>
                     </div>
                     <div className="col-md-6 ">
                         <div className="image">
-                            <img src="assets/img/blog/20.jpg" alt="" />
+                            <img src="/assets/img/3.jpg" alt="" />
                             <p>Caption can be used to add info</p>
                         </div>
                     </div>

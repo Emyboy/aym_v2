@@ -7,7 +7,7 @@ interface Props {
 export default function EachComment({}: Props): ReactElement {
     return (
         <li className="comment-item">
-            <img src="assets/img/user/1.jpg" alt="" />
+            <img src="/assets/img/1.jpg" alt="" />
                 <div className="content">
                     <ul className="info list-inline">
                         <li>Mohammed Ali</li>

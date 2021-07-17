@@ -9,7 +9,7 @@ export default function AdminCard({ }: Props): ReactElement {
         <div className="widget">
             <div className="widget-author">
                 <a href="author.html" className="image">
-                    <img src="assets/img/author/1.jpg" alt="" />
+                    <img src="/assets/img/1.jpg" alt="" />
                 </a>
                 <h6>
                     <span>Hi, I'm David Smith</span>
