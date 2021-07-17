@@ -8,11 +8,11 @@ import {
     composeWithDevTools
 } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import indexReducer from '../reducers/root.reducer';
 
 //dotenv.config();
-const middleware = [thunk, logger];
+const middleware = [thunk];
 
 const configureStore = (settings: any = {}) => createStore(
     indexReducer, settings,

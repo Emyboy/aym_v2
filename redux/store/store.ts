@@ -9,7 +9,7 @@ const store = configureStore(loadedState);
 
 store.subscribe(() => {
     saveState({
-        auth: store.getState().auth
+        
     })
 })
 
