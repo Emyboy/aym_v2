@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import Img from 'next/image'
 
 interface Props {
     
@@ -8,7 +9,7 @@ export default function PostBody({}: Props): ReactElement {
     return (
         <div className="post-single">
             <div className="post-single-image">
-                <img src="/assets/img/3.jpg" alt="" />
+                <Img src="/assets/img/3.jpg" alt="" width={1000} height={800} />
             </div>
             <div className="post-single-content">
                 <a href="blog-grid.html" className="categorie">travel</a>
@@ -47,7 +48,7 @@ export default function PostBody({}: Props): ReactElement {
                 <div className="row">
                     <div className="col-md-12 ">
                         <div className="image">
-                            <img src="/assets/img/3.jpg" alt="" />
+                            {/* <img src="/assets/img/3.jpg" alt="" /> */}
                             <p>Caption can be used to add info</p>
                         </div>
                     </div>
@@ -91,13 +92,13 @@ export default function PostBody({}: Props): ReactElement {
                 <div className="row">
                     <div className="col-md-6 ">
                         <div className="image">
-                            <img src="/assets/img/3.jpg" alt="" />
+                            {/* <img src="/assets/img/3.jpg" alt="" /> */}
                             <p>Caption can be used to add info</p>
                         </div>
                     </div>
                     <div className="col-md-6 ">
                         <div className="image">
-                            <img src="/assets/img/3.jpg" alt="" />
+                            {/* <img src="/assets/img/3.jpg" alt="" /> */}
                             <p>Caption can be used to add info</p>
                         </div>
                     </div>

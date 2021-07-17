@@ -1,4 +1,6 @@
 import React, { ReactElement } from 'react'
+import Img from 'next/image';
+
 
 interface Props {
     
@@ -7,7 +9,8 @@ interface Props {
 export default function EachComment({}: Props): ReactElement {
     return (
         <li className="comment-item">
-            <img src="/assets/img/1.jpg" alt="" />
+            <Img src="/assets/img/1.jpg" alt="" width={500}
+                height={500} className="avatar" />
                 <div className="content">
                     <ul className="info list-inline">
                         <li>Mohammed Ali</li>

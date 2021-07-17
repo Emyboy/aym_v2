@@ -1,13 +1,13 @@
 import { ReactElement } from "react"
 import Link from 'next/link'
-
+import Img from 'next/image'
 
 const PostCardLG = (): ReactElement => {
     return <div className="card">
         <div className="post-card">
             <div className="post-card-image">
                 <Link href="/post/article/3/g455b5b544b45b6-4b4-4">
-                    <img src={`/assets/img/3.jpg`} alt="" />
+                    <Img src={`/assets/img/3.jpg`} alt="" width={500} height={500}/>
                 </Link>
 
             </div>

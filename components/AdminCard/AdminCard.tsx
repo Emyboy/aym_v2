@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-
+import Img from 'next/image'
 interface Props {
 
 }
@@ -9,7 +9,7 @@ export default function AdminCard({ }: Props): ReactElement {
         <div className="widget">
             <div className="widget-author">
                 <a href="author.html" className="image">
-                    <img src="/assets/img/1.jpg" alt="" />
+                    <Img src="/assets/img/1.jpg" alt="" width='100%' height='100%'/>
                 </a>
                 <h6>
                     <span>Hi, I'm David Smith</span>

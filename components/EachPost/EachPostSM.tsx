@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import Img from 'next/image'
 
 interface Props {
 
@@ -9,7 +10,7 @@ export default function EachPostSM({ }: Props): ReactElement {
         <li className="last-post">
             <div className="image">
                 <a href="post-default.html">
-                    <img src="/assets/img/3.jpg" alt="..." />
+                    <Img src="/assets/img/3.jpg" alt="..." width={500} height={500} />
                 </a>
             </div>
             <div className="nb">1</div>

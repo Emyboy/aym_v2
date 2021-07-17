@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import Img from 'next/image'
 
 interface Props {
 
@@ -13,7 +14,7 @@ export default function NextandPrevPost({ }: Props): ReactElement {
                         <div className="small-post">
                             <div className="image">
                                 <a href="post-default.html">
-                                    <img src="/assets/img/3.jpg" alt="..." />
+                                    <Img src="/assets/img/3.jpg" alt="..." width={500} height={500}/>
                                 </a>
                             </div>
                             <div className="content">
@@ -32,7 +33,7 @@ export default function NextandPrevPost({ }: Props): ReactElement {
                         <div className="small-post">
                             <div className="image">
                                 <a href="post-default.html">
-                                    <img src="/assets/img/3.jpg" alt="..." />
+                                    <Img src="/assets/img/3.jpg" alt="..." width={500} height={500}/>
                                 </a>
                             </div>
                             <div className="content">
