@@ -12,13 +12,11 @@ export default function AdminCard({ }: Props): ReactElement {
                     <Img src="/assets/img/1.jpg" alt="" width='100%' height='100%'/>
                 </a>
                 <h6>
-                    <span>Hi, I'm David Smith</span>
+                    <span>My name</span>
                 </h6>
                 <p>
 
-                    I'm David Smith, husband and father ,
-                    I love Photography,travel and nature. I'm working as a writer and blogger with experience
-                    of 5 years until now.
+                    about me
                 </p>
 
 

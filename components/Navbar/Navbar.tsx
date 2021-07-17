@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import Link from 'next/link'
-
+import Img from 'next/image'
 
 const Navbar = (): ReactElement => {
 
@@ -10,7 +10,7 @@ const Navbar = (): ReactElement => {
         <div className="container-fluid">
             <div className="logo">
                 <Link href="/">
-                    <img src="/logo.png" alt="" className="logo-dark" />
+                    <Img src="/logo.png" alt="" className="logo-dark" width={500} height={500}/>
                     {/* <img src="assets/img/logo-white.png" alt="" className="logo-white" /> */}
                 </Link>
             </div>

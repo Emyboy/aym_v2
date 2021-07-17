@@ -16,7 +16,7 @@ export default function PostBody({}: Props): ReactElement {
                 <h4>What the secrets you will know about jordan petra if visit it one day? </h4>
                 <div className="post-single-info">
                     <ul className="list-inline">
-                        <li><a href="author.html"><img src="/assets/img/1.jpg" alt="" /></a></li>
+                        <li><a href="author.html"><Img src="/assets/img/1.jpg" alt="" width={500} height={500}/></a></li>
                         <li><a href="author.html">David Smith</a> </li>
                         <li className="dot"></li>
                         <li>January 15, 2021</li>

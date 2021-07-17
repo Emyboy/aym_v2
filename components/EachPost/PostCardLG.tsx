@@ -22,7 +22,7 @@ const PostCardLG = (): ReactElement => {
                     <ul className="list-inline">
                         <li>
                             <a href="author.html">
-                                <img src={`/assets/img/1.jpg`} alt="" />
+                                <Img src={`/assets/img/1.jpg`} alt="" width={500} height={500} />
                             </a>
                         </li>
                         <li>
