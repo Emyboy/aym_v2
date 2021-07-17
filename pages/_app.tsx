@@ -10,13 +10,17 @@ import type { AppProps } from 'next/app'
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer';
 import Search from '../components/Search/Search';
+import { Provider } from 'react-redux';
+import store from '../redux/store/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <>
-    <Navbar />
-    <Search />
-    <Component {...pageProps} />
-    <Footer />
+    <Provider store={store}>
+      <Navbar />
+      <Search />
+      <Component {...pageProps} />
+      <Footer />
+    </Provider>
   </>
 }
 export default MyApp

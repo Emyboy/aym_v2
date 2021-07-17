@@ -1,16 +1,22 @@
 import React, { ReactElement, useState } from 'react';
 import Link from 'next/link'
 import Img from 'next/image'
+import { connect } from 'react-redux';
 
-const Navbar = (): ReactElement => {
+interface NavbarProps {
+    app: object;
+}
 
+const Navbar = (props: NavbarProps): ReactElement => {
+
+    console.log('Navbar props --', props)
     const [dropdown, setDropdown] = useState(false);
 
     return <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
             <div className="logo">
                 <Link href="/">
-                    <Img src="/logo.png" alt="" className="logo-dark" width={500} height={500}/>
+                    <Img src="/logo.png" alt="" className="logo-dark" width={2900} height={500}/>
                     {/* <img src="assets/img/logo-white.png" alt="" className="logo-white" /> */}
                 </Link>
             </div>
@@ -127,5 +133,11 @@ const Navbar = (): ReactElement => {
     </nav>
 }
 
-export default Navbar;
+const mapStateToProps = (state:any) => ({
+    app: state.app
+})
+
+export default connect(
+    mapStateToProps
+)(Navbar);
 
