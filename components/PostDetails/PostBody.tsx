@@ -26,7 +26,7 @@ export default function PostBody({ post }: Props): ReactElement {
                 {
                     post.users_permissions_user ? <div className="post-single-info">
                         <ul className="list-inline">
-                            <li><a href="author.html"><img src={post.users_permissions_user.avatar_url} alt="" /></a></li>
+                            <li><a href="author.html"><Img src={post.users_permissions_user.avatar_url} alt="" width={100} height={500} /></a></li>
                             <li><a href="author.html">{post.users_permissions_user.first_name} {post.users_permissions_user.last_name}</a> </li>
                             <li className="dot"></li>
                             <li>{moment(post.created_at).fromNow()}</li>
