@@ -3,7 +3,7 @@ import { PostItem } from '../../types/Post.types'
 import Link from 'next/link'
 import moment from 'moment'
 import parse from 'html-react-parser';
-import Img from 'next/image'
+import Img from 'next/image';
 
 interface Props {
     post: PostItem;

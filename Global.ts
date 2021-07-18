@@ -1,5 +1,5 @@
 
 
 export default {
-    API_URL: process.env.NEXT_APP_API_URL,
+    API_URL: process.env.NEXT_PUBLIC_BACKEND_URL,
 }

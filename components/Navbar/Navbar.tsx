@@ -1,22 +1,33 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 import Link from 'next/link'
 import Img from 'next/image'
 import { connect } from 'react-redux';
+import { loginWithGooglePopup } from '../../redux/actions/auth/auth.action';
+import { ReduxState } from '../../redux/store/state.type';
+import { AuthStateType } from '../../redux/reducers/auth/auth.reducer.types';
 
 interface NavbarProps {
-    app: object;
+    auth: AuthStateType;
+    LoginWithGoogle: Function;
+
 }
 
 const Navbar = (props: NavbarProps): ReactElement => {
 
-    console.log('Navbar props --', props)
+    const { auth } = props;
     const [dropdown, setDropdown] = useState(false);
+
+    useEffect(() => {
+        if(!auth.user){
+            props.LoginWithGoogle();
+        }
+    }, []);
 
     return <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
             <div className="logo">
                 <Link passHref href="/">
-                    <Img src="/logo.png" alt="" className="logo-dark" width={2900} height={500}/>
+                    <Img src="/logo.png" alt="" className="logo-dark" width={700} height={100} />
                     {/* <img src="assets/img/logo-white.png" alt="" className="logo-white" /> */}
                 </Link>
             </div>
@@ -29,56 +40,13 @@ const Navbar = (props: NavbarProps): ReactElement => {
                         </Link>
                     </li>
 
-                    {/* <li className="nav-item dropdown">
-                        <a className="nav-link  dropdown-toggle" href="blog-grid.html" data-toggle="dropdown"> Blog </a>
-                        <ul className="dropdown-menu fade-up">
-                            <li><a className="dropdown-item" href="blog-grid.html"> Blog grid</a></li>
-                            <li><a className="dropdown-item" href="blog-masonry.html"> Blog masonry </a></li>
-                            <li>
-                                <a className="dropdown-item " href="blog-list.html"> Blog list </a>
-                            </li>
-                        </ul>
-                    </li> */}
-                    {/* <li className="nav-item dropdown">
-                        <a className="nav-link  dropdown-toggle" href="post-default.html" data-toggle="dropdown"> Posts Features </a>
-                        <ul className="dropdown-menu fade-up">
-                            <li><a className="dropdown-item" href="post-default.html"> post default</a></li>
-                            <li>
-                                <a className="dropdown-item" href="post-video.html"> post video</a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="post-audio.html"> post audio</a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="post-gallery.html"> post gallery</a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="post-no-sidebar.html"> post no sidebar </a>
-                            </li>
-                            <li><a className="dropdown-item" href="post-left-sidebar.html"> post left sidebar </a></li>
-                        </ul>
-                    </li> */}
-
-                    {/* <li className="nav-item dropdown">
-                        <a className="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
-                        <ul className="dropdown-menu fade-up">
-                            <li>
-                                <a className="dropdown-item" href="about.html"> About </a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="author.html"> author </a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="login.html"> Login </a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item " href="register.html"> Sign up </a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item " href="page404.html"> Page 404 </a>
-                            </li>
-                        </ul>
-                    </li> */}
+                    {
+                        auth.user ? <li className="nav-item">
+                            <Link href='/profile'>
+                                <a className="nav-link"> Profile </a>
+                            </Link>
+                        </li> : null
+                    }
                     <li className="nav-item">
                         <a className="nav-link" href="contact.html"> Contact </a>
                     </li>
@@ -133,11 +101,16 @@ const Navbar = (props: NavbarProps): ReactElement => {
     </nav>
 }
 
-const mapStateToProps = (state:any) => ({
-    app: state.app
-})
+const mapStateToProps = (state: ReduxState) => ({
+    auth: state.auth,
+});
+
+const mapDispatchToProps = {
+    LoginWithGoogle: loginWithGooglePopup
+}
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Navbar);
 
