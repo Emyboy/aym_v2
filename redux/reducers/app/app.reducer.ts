@@ -1,7 +1,9 @@
-
+import {
+    SET_APP_STATE
+ } from '../../actions/app/app.action.types';
 
 const initialState = {
-    showNav: false
+    categories: [],
 }
 
 interface Action {
@@ -12,7 +14,7 @@ interface Action {
 export default (state = initialState, { type, payload }: Action) => {
     switch (type) {
 
-        case 'typeName':
+        case SET_APP_STATE:
             return { ...state, ...payload }
 
         default:

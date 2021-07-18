@@ -5,11 +5,14 @@ import { connect } from 'react-redux';
 import { loginWithGooglePopup } from '../../redux/actions/auth/auth.action';
 import { ReduxState } from '../../redux/store/state.type';
 import { AuthStateType } from '../../redux/reducers/auth/auth.reducer.types';
+import { 
+    getAllCategories
+} from '../../redux/actions/app/app.action'
 
 interface NavbarProps {
     auth: AuthStateType;
     LoginWithGoogle: Function;
-
+    getAllCategories: Function;
 }
 
 const Navbar = (props: NavbarProps): ReactElement => {
@@ -20,7 +23,8 @@ const Navbar = (props: NavbarProps): ReactElement => {
     useEffect(() => {
         if(!auth.user){
             props.LoginWithGoogle();
-        }
+        };
+        props.getAllCategories()
     }, []);
 
     return <nav className="navbar navbar-expand-lg fixed-top">
@@ -39,17 +43,24 @@ const Navbar = (props: NavbarProps): ReactElement => {
                             <a className="nav-link"> Home </a>
                         </Link>
                     </li>
-
-                    {
-                        auth.user ? <li className="nav-item">
-                            <Link href='/profile'>
-                                <a className="nav-link"> Profile </a>
-                            </Link>
-                        </li> : null
-                    }
                     <li className="nav-item">
                         <a className="nav-link" href="contact.html"> Contact </a>
                     </li>
+
+                    {
+                        auth.user ? <>
+                            <li className="nav-item">
+                                <Link href={`/user/${auth.user.username}`}>
+                                    <a className="nav-link"> Profile </a>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link href='/compose'>
+                                    <a className="nav-link"> Compose </a>
+                                </Link>
+                            </li>
+                        </> : null
+                    }
 
                 </ul>
             </div>
@@ -106,7 +117,8 @@ const mapStateToProps = (state: ReduxState) => ({
 });
 
 const mapDispatchToProps = {
-    LoginWithGoogle: loginWithGooglePopup
+    LoginWithGoogle: loginWithGooglePopup,
+    getAllCategories: getAllCategories
 }
 
 export default connect(
