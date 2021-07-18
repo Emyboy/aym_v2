@@ -18,7 +18,7 @@ export default function PostBody({ post }: Props): ReactElement {
             </div>
             <div className="post-single-content">
                 {
-                    post.category ? <Link href={`/category/${post.category.id}`}>
+                    post.category ? <Link passHref href={`/category/${post.category.id}`}>
                         <a className="categorie">travel</a>
                     </Link> : null
                 }
@@ -47,7 +47,7 @@ export default function PostBody({ post }: Props): ReactElement {
                         {
                             post.categories.map(category => {
                                 return <li key={category.id}>
-                                    <Link href={`/category/${category.id}`}>
+                                    <Link passHref href={`/category/${category.id}`}>
                                         <a>{category.name.toUpperCase()}</a>
                                     </Link>
                                 </li>

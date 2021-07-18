@@ -17,7 +17,7 @@ export default function PageNotFound({ }: Props): ReactElement {
                         <h1>404</h1>
                         <h3>Page Not Found.</h3>
                         <p>It looks like nothing was found at this location. </p>
-                        <Link href="/">
+                        <Link passHref href="/">
                             <a className="btn-custom">Go back to Home</a>
                         </Link>
                     </div>

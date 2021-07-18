@@ -15,7 +15,7 @@ const Navbar = (props: NavbarProps): ReactElement => {
     return <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
             <div className="logo">
-                <Link href="/">
+                <Link passHref href="/">
                     <Img src="/logo.png" alt="" className="logo-dark" width={2900} height={500}/>
                     {/* <img src="assets/img/logo-white.png" alt="" className="logo-white" /> */}
                 </Link>
@@ -24,7 +24,7 @@ const Navbar = (props: NavbarProps): ReactElement => {
             <div className={`collapse navbar-collapse ${dropdown ? 'show' : ''}`} id="main_nav">
                 <ul className="navbar-nav ml-auto mr-auto">
                     <li className="nav-item">
-                        <Link href='/'>
+                        <Link passHref href='/'>
                             <a className="nav-link"> Home </a>
                         </Link>
                     </li>
