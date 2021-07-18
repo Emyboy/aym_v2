@@ -14,7 +14,7 @@ const PostCardLG = (props: PostCardLGProps): ReactElement => {
         <div className="post-card">
             <div className="post-card-image">
                 <Link href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
-                    <Img src={post.src} alt={post.description} width={500} height={400} />
+                    <img src={post.src} alt={post.description} />
                 </Link>
 
             </div>
