@@ -1,7 +1,7 @@
 
 
 export interface AuthStateType {
-    user: UserPremission;
+    user: null | UserPremission;
 }
 
 export interface UserPremission {

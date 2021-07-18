@@ -2,7 +2,7 @@ import {
     LOGIN_USER
 } from "../../actions/auth/auth.action.types"
 import {
-    AuthStateType
+    AuthStateType,
 } from './auth.reducer.types'
 
 const initialState: AuthStateType = {
