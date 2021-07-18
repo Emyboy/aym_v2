@@ -28,7 +28,7 @@ function UserProfile({ auth, data }: Props): ReactElement {
                                     <a href="author.html" className="image">
                                         <Img src={user.avatar_url} alt="" width={500} height={500} />
                                     </a>
-                                    <h6><span>Hi, I'm {user.first_name} {user.last_name}</span></h6>
+                                    <h6><span>{user.first_name} {user.last_name}</span></h6>
                                     <div className="link">13 Articles</div>
                                     <p>{user.bio}</p>
     

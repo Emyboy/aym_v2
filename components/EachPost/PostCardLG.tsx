@@ -13,7 +13,7 @@ const PostCardLG = (props: PostCardLGProps): ReactElement => {
     return <div className="card">
         <div className="post-card">
             <div className="post-card-image">
-                <Link href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
+                <Link passHref  href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
                     <img src={post.src} alt={post.description} />
                 </Link>
 
