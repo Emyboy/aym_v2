@@ -3,6 +3,7 @@ import { PostItem } from '../../types/Post.types'
 import Link from 'next/link'
 import moment from 'moment'
 import parse from 'html-react-parser';
+import Img from 'next/image'
 
 interface Props {
     post: PostItem;
@@ -13,7 +14,7 @@ export default function PostBody({ post }: Props): ReactElement {
     return (
         <div className="post-single">
             <div className="post-single-image">
-                <img src={post.image_url} alt={post.title} width={1000} height={800} />
+                <Img src={post.image_url} alt={post.title} width={1000} height={800} />
             </div>
             <div className="post-single-content">
                 {

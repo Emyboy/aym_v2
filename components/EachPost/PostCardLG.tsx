@@ -14,7 +14,7 @@ const PostCardLG = (props: PostCardLGProps): ReactElement => {
         <div className="post-card">
             <div className="post-card-image">
                 <Link href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
-                    <img src={post.src} alt="" width={500} height={500} />
+                    <Img src={post.src} alt={post.description} width={500} height={400} />
                 </Link>
 
             </div>
@@ -34,7 +34,7 @@ const PostCardLG = (props: PostCardLGProps): ReactElement => {
                         <ul className="list-inline">
                             <li>
                                 <a href="author.html">
-                                    <img src={post.users_permissions_user.avatar_url} alt="" width={500} height={500} />
+                                    <Img src={post.users_permissions_user.avatar_url} alt={post.users_permissions_user.first_name} width={400} height={500} />
                                 </a>
                             </li>
                             <li>
