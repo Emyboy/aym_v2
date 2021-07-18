@@ -1,11 +1,11 @@
 import {
     LOGIN_USER
 } from "../../actions/auth/auth.action.types"
-import {
-    AuthStateType,
-} from './auth.reducer.types'
+// import {
+//     AuthStateType,
+// } from './auth.reducer.types'
 
-const initialState: AuthStateType = {
+const initialState = {
     user: null
 }
 
