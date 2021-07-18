@@ -109,7 +109,7 @@ const Editor = (props => {
         // Do something with the files
         console.log('SELECTED --', acceptedFiles)
         setState({ ...state, fileData: acceptedFiles[0] })
-    }, [])
+    }, [state])
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
     // useEffect(() => {

@@ -25,7 +25,7 @@ const Navbar = (props: NavbarProps): ReactElement => {
             props.LoginWithGoogle();
         };
         props.getAllCategories()
-    }, []);
+    }, [auth.user, props]);
 
     return <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">

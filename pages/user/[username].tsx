@@ -30,8 +30,7 @@ function UserProfile({ auth, data }: Props): ReactElement {
                                     </a>
                                     <h6><span>Hi, I'm {user.first_name} {user.last_name}</span></h6>
                                     <div className="link">13 Articles</div>
-                                    <p> {user.bio}
-                                    </p>
+                                    <p>{user.bio}</p>
     
                                     <div className="social-media">
                                         <ul className="list-inline">
