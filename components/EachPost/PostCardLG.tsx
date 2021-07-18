@@ -1,37 +1,50 @@
 import { ReactElement } from "react"
 import Link from 'next/link'
 import Img from 'next/image'
+import { PostItem } from "../../types/Post.types";
+import moment from "moment"
 
-const PostCardLG = (): ReactElement => {
+interface PostCardLGProps {
+    post: PostItem
+}
+
+const PostCardLG = (props: PostCardLGProps): ReactElement => {
+    const { post } = props;
     return <div className="card">
         <div className="post-card">
             <div className="post-card-image">
-                <Link href="/post/article/3/g455b5b544b45b6-4b4-4">
-                    <Img src={`/assets/img/3.jpg`} alt="" width={500} height={500}/>
+                <Link href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
+                    <img src={post.src} alt="" width={500} height={500} />
                 </Link>
 
             </div>
             <div className="post-card-content">
-                <a href="blog-grid.html" className="categorie"> Travel</a>
+                {
+                    post.category ? <Link href="/category/id">
+                        <a className="categorie">{post.category.name}</a>
+                    </Link> : null
+                }
                 <h5>
-                    <a href="/post/article/3/g455b5b544b45b6-4b4-4">Rodrigues Island: When I Found a Paradise Next to Paradise</a>
+                    <Link href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>{post.title}</Link>
                 </h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...
+                <p>{post.description}
                 </p>
-                <div className="post-card-info">
-                    <ul className="list-inline">
-                        <li>
-                            <a href="author.html">
-                                <Img src={`/assets/img/1.jpg`} alt="" width={500} height={500} />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="author.html">David Smith</a>
-                        </li>
-                        <li className="dot"></li>
-                        <li>January 15, 2021</li>
-                    </ul>
-                </div>
+                {
+                    post.users_permissions_user ? <div className="post-card-info">
+                        <ul className="list-inline">
+                            <li>
+                                <a href="author.html">
+                                    <img src={post.users_permissions_user.avatar_url} alt="" width={500} height={500} />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="author.html">{post.users_permissions_user.first_name} {post.users_permissions_user.last_name}</a>
+                            </li>
+                            <li className="dot"></li>
+                            <li>{moment(post.created_at).fromNow()}</li>
+                        </ul>
+                    </div> : null
+                }
             </div>
         </div>
     </div>

@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.post-single-body a {
+  color: #f67280 !important;
+}
+.post-single-body a:hover {
+  color: #c43e4b !important;
+}

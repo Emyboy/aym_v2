@@ -1,12 +1,15 @@
 import React, { ReactElement } from 'react'
+import { PostCategory, PostItem } from '../../types/Post.types';
 import PostCardLG from '../EachPost/PostCardLG'
-import SidePanel from '../SidePanel/SidePanel'
+import SidePanel from '../SidePanel/SidePanel';
 
-interface Props {
 
+type Props = {
+    list?: PostItem[],
+    category?: PostCategory
 }
 
-export default function HomePage({ }: Props): ReactElement {
+export default function HomePage({ list }: Props): ReactElement {
     return (
         <>
             <section className="categorie-section">
@@ -30,10 +33,11 @@ export default function HomePage({ }: Props): ReactElement {
                     <div className="row">
                         <div className="col-lg-8 mt--10">
                             <div className="card-columns">
-                                <PostCardLG />
-                                <PostCardLG />
-                                <PostCardLG />
-                                <PostCardLG />
+                                {
+                                    list?.map((data, i) => {
+                                        return <PostCardLG key={i} post={data} />
+                                    })
+                                }
                             </div>
                         </div>
                         <SidePanel />
