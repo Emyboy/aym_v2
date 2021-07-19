@@ -1,22 +1,41 @@
-import React, { ReactElement } from 'react'
+import axios from 'axios'
+import React, { ReactElement, useEffect, useState } from 'react'
+import Global from '../../Global'
+import { CommentTypes } from '../../types/CommentType'
+import { PostItem } from '../../types/Post.types'
 import EachComment from '../EachComment/EachComment'
 
 interface Props {
-
+    post: PostItem;
 }
 
-export default function CommentSection({ }: Props): ReactElement {
+export default function CommentSection({ post }: Props): ReactElement {
+
+    const [comments, setComments] = useState<CommentTypes[]>([]);
+
+    useEffect(() => {
+        axios(Global.API_URL + `/comments/?post=${post.id}`)
+            .then(res => {
+                setComments(res.data)
+                console.log('COMMENTS ---', res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
+
     return (
         <div className="widget mb-50">
             <div className="title">
-                <h5>3 Comments</h5>
+                <h5>{comments.length} Comments</h5>
             </div>
 
             <ul className="widget-comments">
-                <EachComment />
-                <EachComment />
-                <EachComment />
-                <EachComment />
+                {
+                    comments.map((val, i) => {
+                        return <EachComment key={i} data={val} />
+                    })
+                }
             </ul>
 
             <div className="title">
@@ -26,10 +45,10 @@ export default function CommentSection({ }: Props): ReactElement {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="form-group">
-                            <textarea name="message" id="message" cols={30} rows={5} className="form-control" placeholder="Message*" required ></textarea>
+                            <textarea name="comment" id="comment" cols={30} rows={2} className="form-control" placeholder="Comment*" required ></textarea>
                         </div>
                     </div>
-                    
+
                     <div className="col-12">
                         <button type="submit" name="submit" className="btn-custom">
                             Post Comment

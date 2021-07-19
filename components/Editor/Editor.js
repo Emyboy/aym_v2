@@ -72,13 +72,14 @@ const Editor = (props => {
             },
         })
             .then(res => {
-                setState({ ...state, storage_id, loading: false })
+                setState({ ...state, storage_id, loading: false });
                 console.log(res)
                 setPostDone(true)
             })
             .catch(err => {
-                setState({ ...state, loading: false })
+                setState({ ...state, loading: false });
                 console.log(err)
+                alert('Error creating post ')
                 deleteFile(storage_id)
             })
     }

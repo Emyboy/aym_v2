@@ -21,8 +21,8 @@ export default function PostDetails(props: Props): ReactElement {
 
                     <div className="col-lg-8 mb-20">
                         <PostBody post={_post} />
-                        <NextandPrevPost />
-                        <CommentSection />
+                        {/* <NextandPrevPost post={_post} /> */}
+                        <CommentSection post={_post} />
                     </div>
 
                     <SidePanel />
