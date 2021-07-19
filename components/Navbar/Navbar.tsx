@@ -31,7 +31,7 @@ const Navbar = (props: NavbarProps): ReactElement => {
         <div className="container-fluid">
             <div className="logo">
                 <Link passHref href="/">
-                    <Img src="/logo.png" alt="" className="logo-dark" width={700} height={100} />
+                    <img src="/logo.png" alt="" className="logo-dark" width="200px"/>
                     {/* <img src="assets/img/logo-white.png" alt="" className="logo-white" /> */}
                 </Link>
             </div>
