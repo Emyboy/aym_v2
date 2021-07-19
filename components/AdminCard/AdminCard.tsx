@@ -23,17 +23,17 @@ export default function AdminCard({ }: Props): ReactElement {
                 <div className="social-media">
                     <ul className="list-inline">
                         <li>
-                            <a href="https://www.facebook.com/uchechi.nwangwu" target="_blank" className="color-facebook">
+                            <a href="https://www.facebook.com/uchechi.nwangwu" target="_blank" className="color-facebook" rel="noreferrer">
                                 <i className="fab fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://youtube.com/channel/UCg-XS60LD7QxYzajM3lM9Iw" target="_blank" className="color-youtube">
+                            <a href="https://youtube.com/channel/UCg-XS60LD7QxYzajM3lM9Iw" target="_blank" className="color-youtube" rel="noreferrer">
                                 <i className="fab fa-youtube"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://linkedin.com/in/nwangwu-uchechi" target="_blank" className="color-facebook">
+                            <a href="http://linkedin.com/in/nwangwu-uchechi" target="_blank" className="color-facebook" rel="noreferrer">
                                 <i className="fab fa-linkedin"></i>
                             </a>
                         </li>
