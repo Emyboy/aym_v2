@@ -10,7 +10,7 @@ interface Props {
 
 export default function EachComment({ data }: Props): ReactElement {
     return (
-        <li className="comment-item">
+        <li className={`comment-item ${data.isNew ? 'animate__animated animate__bounceInUp' : ''}`}>
             <img src={data.users_permissions_user.avatar_url} alt="" className="avatar" />
             <div className="content">
                 <ul className="info list-inline">

@@ -12,11 +12,11 @@ export default function AdminCard({ }: Props): ReactElement {
                     <img src="/assets/img/uchechi.jpeg" alt=""/>
                 </a>
                 <h6>
-                    <span>My name</span>
+                    <span>Uchechi</span>
                 </h6>
                 <p>
 
-                    about me
+                    Nwangwu Uchechi and is a Certified Geologist and brand storyteller who uses great ancestral technology in content creation.
                 </p>
 
 
