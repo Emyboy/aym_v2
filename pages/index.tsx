@@ -28,7 +28,7 @@ const HomePage = (props: Props): ReactElement => {
       </div>
     </section > */}
     <PostList list={data} />
-    <NewLetter />
+    {/* <NewLetter /> */}
   </>
 }
 
