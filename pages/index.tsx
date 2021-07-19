@@ -34,7 +34,7 @@ const HomePage = (props: Props): ReactElement => {
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(Global.API_URL + '/posts?_limit=30');
+  const res = await fetch(Global.API_URL + '/posts?_sort=created_at:DESC&_limit=20');
   const data: PostItem[] = await res.json()
 
   return {

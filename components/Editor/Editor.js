@@ -62,7 +62,7 @@ const Editor = (props => {
             storage_id,
             users_permissions_user: auth.user.id || null,
         }
-        console.log('sending --', post);
+        // console.log('sending --', post);
         axios(Global.API_URL + '/posts', {
             method: 'POST',
             data: post,
@@ -73,12 +73,12 @@ const Editor = (props => {
         })
             .then(res => {
                 setState({ ...state, storage_id, loading: false });
-                console.log(res)
+                // console.log(res)
                 setPostDone(true)
             })
             .catch(err => {
                 setState({ ...state, loading: false });
-                console.log(err)
+                // console.log(err)
                 alert('Error creating post ')
                 deleteFile(storage_id)
             })
@@ -146,8 +146,8 @@ const Editor = (props => {
                         <h1 className='text-center'>Create Post</h1>
                         <div className="w-100">
                             <div className="form-group">
-                                <label>Your Name</label>
-                                <input className='form-control' id="name" type="text" onChange={e => setData({ ...data, title: e.target.value })} />
+                                <label>Post Title</label>
+                                <input className='form-control' id="name" name='title' type="text" onChange={e => setData({ ...data, title: e.target.value })} />
                             </div>
                         </div>
                         <div className="row row--10 mb-3">
@@ -202,8 +202,8 @@ const Editor = (props => {
                             <div className="col-12">
                                 <div className="form-group">
                                     <label>Short Description</label>
-                                    <textarea className='form-control' name="message" onChange={e => setData({ ...data, description: e.target.value })}
-                                        rows='5'
+                                    <textarea maxLength='160' className='form-control' name="message" onChange={e => setData({ ...data, description: e.target.value })}
+                                        rows='3'
                                     ></textarea>
                                 </div>
                             </div>

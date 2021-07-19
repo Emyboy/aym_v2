@@ -25,7 +25,7 @@ export default function SidePanel(props: Props): ReactElement {
     }, []);
 
     useEffect(() => {
-        axios(Global.API_URL + '/posts?_limit=6')
+        axios(Global.API_URL + '/posts?_sort=views:ASC&_limit=6')
             .then(res => {
                 console.log('cat --', res.data)
                 setPosts(res.data)
@@ -53,7 +53,7 @@ export default function SidePanel(props: Props): ReactElement {
             <Sticky stickyStyle={{ marginTop: '9vh' }}>
                 <div className="widget ">
                     <div className="section-title">
-                        <h5>Latest Posts</h5>
+                        <h5>Popular Posts</h5>
                     </div>
                     <ul className="widget-latest-posts">
                         {

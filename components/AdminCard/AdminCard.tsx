@@ -9,7 +9,7 @@ export default function AdminCard({ }: Props): ReactElement {
         <div className="widget">
             <div className="widget-author">
                 <a href="author.html" className="image">
-                    <Img src="/assets/img/1.jpg" alt="" width='100%' height='100%'/>
+                    <img src="/assets/img/uchechi.jpeg" alt=""/>
                 </a>
                 <h6>
                     <span>My name</span>
@@ -23,30 +23,30 @@ export default function AdminCard({ }: Props): ReactElement {
                 <div className="social-media">
                     <ul className="list-inline">
                         <li>
-                            <a href="#" className="color-facebook">
+                            <a href="https://www.facebook.com/uchechi.nwangwu" target="_blank" className="color-facebook">
                                 <i className="fab fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="color-instagram">
-                                <i className="fab fa-instagram"></i>
+                            <a href="https://youtube.com/channel/UCg-XS60LD7QxYzajM3lM9Iw" target="_blank" className="color-youtube">
+                                <i className="fab fa-youtube"></i>
                             </a>
                         </li>
                         <li>
+                            <a href="http://linkedin.com/in/nwangwu-uchechi" target="_blank" className="color-facebook">
+                                <i className="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        {/* <li>
                             <a href="#" className="color-twitter">
                                 <i className="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="color-youtube">
-                                <i className="fab fa-youtube"></i>
                             </a>
                         </li>
                         <li>
                             <a href="#" className="color-pinterest">
                                 <i className="fab fa-pinterest"></i>
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
