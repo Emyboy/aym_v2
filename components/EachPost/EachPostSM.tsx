@@ -1,22 +1,32 @@
 import React, { ReactElement } from 'react'
 import Img from 'next/image'
+import { PostItem } from '../../types/Post.types'
+import Link from 'next/link'
+import moment from 'moment'
 
 interface Props {
-
+    post: PostItem;
+    index: number;
 }
 
-export default function EachPostSM({ }: Props): ReactElement {
+export default function EachPostSM({ post, index }: Props): ReactElement {
     return (
         <li className="last-post">
             <div className="image">
-                <a href="post-default.html">
-                    <Img src="/assets/img/3.jpg" alt="..." width={500} height={500} />
-                </a>
+                <Link passHref href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
+                    <a>
+                        <img src={post.image_url} alt="..." />
+                    </a>
+                </Link>
             </div>
-            <div className="nb">1</div>
+            <div className="nb">{index + 1}</div>
             <div className="content">
-                <p><a href="post-default.html">5 Things I Wish I Knew Before Traveling to Malaysia</a></p>
-                <small><span className="icon_clock_alt"></span> January 15, 2021</small>
+                <p>
+                    <Link passHref href={`/post/${post.content_type}/${post.category.id}/${post.storage_id}`}>
+                        <a>{post.title}</a>
+                    </Link>
+                </p>
+                <small><span className="icon_clock_alt"></span> {moment(post.created_at).fromNow()}</small>
             </div>
         </li>
     )

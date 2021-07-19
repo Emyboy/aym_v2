@@ -10,7 +10,6 @@ const config = {
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
 };
-console.log('CONFIT --', config);
 export default function initFirebase() {
     if (!firebase.apps.length) {
         firebase.initializeApp(config);
