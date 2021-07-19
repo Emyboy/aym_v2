@@ -17,7 +17,7 @@ export default function SidePanel(props: Props): ReactElement {
     const [posts, setPosts] = useState<PostItem[]>([]);
 
     useEffect(() => {
-        axios(Global.API_URL + '/categories')
+        axios(Global.API_URL + '/categories?_limit=7')
             .then(res => {
                 console.log('cat --', res.data)
                 setCategories(res.data)
@@ -25,7 +25,7 @@ export default function SidePanel(props: Props): ReactElement {
     }, []);
 
     useEffect(() => {
-        axios(Global.API_URL + '/posts')
+        axios(Global.API_URL + '/posts?_limit=6')
             .then(res => {
                 console.log('cat --', res.data)
                 setPosts(res.data)
