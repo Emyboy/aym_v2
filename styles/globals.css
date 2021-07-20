@@ -24,4 +24,6 @@ a {
 /* .ck-editor__main{
   height:'10vh' !important;
 } */
-
+.bg-theme {
+  background-color: #f67280 !important;
+}

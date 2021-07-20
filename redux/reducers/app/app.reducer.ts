@@ -4,6 +4,7 @@ import {
 
 const initialState = {
     categories: [],
+    showSearch: false
 }
 
 interface Action {

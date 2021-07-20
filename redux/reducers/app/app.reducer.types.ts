@@ -1,6 +1,6 @@
 
 
-export interface App {
-
+export interface AppReducerType {
+    showSearch: boolean;
 }
 
