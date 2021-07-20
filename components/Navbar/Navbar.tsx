@@ -29,7 +29,7 @@ const Navbar = (props: NavbarProps): ReactElement => {
             props.LoginWithGoogle();
         };
         props.getAllCategories()
-    }, [auth.user, props]);
+    }, []);
 
     const toggleSearch = () => {
         store.dispatch({
