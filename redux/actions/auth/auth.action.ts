@@ -30,7 +30,7 @@ export const loginWithGooglePopup = () => async (dispatch: Dispatch) => {
                 })
                     .then(res => {
                         console.log('USER --', res);
-                        Cookies.set('token', res.data.jwt, { expires: 7 })
+                        Cookies.set('_token', res.data.jwt, { expires: 7 })
                         dispatch({
                             type: LOGIN_USER,
                             payload: res.data.user
@@ -54,7 +54,7 @@ export const loginWithGooglePopup = () => async (dispatch: Dispatch) => {
                 })
                     .then(res => {
                         console.log('USER --', res);
-                        Cookies.set('token', res.data.jwt, { expires: 7 })
+                        Cookies.set('_token', res.data.jwt, { expires: 7 })
                         dispatch({
                             type: LOGIN_USER,
                             payload: res.data.user

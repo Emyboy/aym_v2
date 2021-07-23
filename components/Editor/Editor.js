@@ -68,7 +68,7 @@ const Editor = (props => {
             data: post,
             headers: {
                 Authorization:
-                    `Bearer ${Cookies.get('token')}`,
+                    `Bearer ${Cookies.get('_token')}`,
             },
         })
             .then(res => {

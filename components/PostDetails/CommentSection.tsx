@@ -37,7 +37,7 @@ function CommentSection({ post, auth }: Props): ReactElement {
         axios(Global.API_URL + '/comments', {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${Cookies.get('token')}`
+                Authorization: `Bearer ${Cookies.get('_token')}`
             },
             data: {
                 users_permissions_user: auth.user,

@@ -126,8 +126,8 @@ const Navbar = (props: NavbarProps): ReactElement => {
         </nav>
         <button className="search-icon bg-theme text-white btn shadow" onClick={toggleSearch} style={{
             position: 'fixed', bottom: '30px', right: '30px', borderRadius: '50%', display: 'block', zIndex: 50,
-            height: '70px',
-            width: '70px'
+            height: '60px',
+            width: '60px'
         }}>
             <i className="icon_search " style={{ fontSize: '25px' }}></i>
         </button>
