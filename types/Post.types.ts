@@ -13,6 +13,8 @@ export interface PostItem {
     storage_id: string;
     content_type: string;
     image_url: string;
+    published_at: string;
+    updated_at: string;
 };
 
 export interface PostCategory {

@@ -24,10 +24,8 @@ function CommentSection({ post, auth }: Props): ReactElement {
         axios(Global.API_URL + `/comments/?post=${post.id}`)
             .then(res => {
                 setComments(res.data)
-                console.log('COMMENTS ---', res)
             })
             .catch(err => {
-                console.log(err)
             })
     }, []);
 
@@ -55,7 +53,6 @@ function CommentSection({ post, auth }: Props): ReactElement {
             })
             .catch(err => {
                 setLoading(false);
-                console.log(err);
             })
     }
 

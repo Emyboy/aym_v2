@@ -5,7 +5,8 @@ import NextandPrevPost from '../../../../components/PostDetails/NextandPrevPost'
 import PostBody from '../../../../components/PostDetails/PostBody'
 import SidePanel from '../../../../components/SidePanel/SidePanel'
 import Global from '../../../../Global'
-import { PostItem } from '../../../../types/Post.types'
+import { PostItem } from '../../../../types/Post.types';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     data: PostItem[]
@@ -16,6 +17,41 @@ export default function PostDetails(props: Props): ReactElement {
     const _post = props.data[0];
     return (
         <section className="section pt-55 ">
+            <NextSeo
+                title={_post.title + ' | AYM'}
+                description={_post.description}
+
+                openGraph={{
+                    url: `${Global.SITE_URL + `/post/${_post.content_type}/${_post.category.id}/${_post.storage_id}`}`,
+                    title: _post.title + ' | AYM',
+                    description: _post.description,
+                    article: {
+                        publishedTime: _post.published_at,
+                        modifiedTime: _post.updated_at,
+                        section: _post.description,
+                        authors: [
+                            'http://linkedin.com/in/nwangwu-uchechi',
+                        ],
+                        tags: [..._post.categories.map(cat => {
+                            return cat.name
+                        })],
+                    },
+                    images: [
+                        {
+                            url: _post.image_url,
+                            width: 800,
+                            height: 600,
+                            alt: _post.title,
+                        }
+                    ],
+                    site_name: 'African Youth Minds',
+                }}
+                twitter={{
+                    handle: '@africanyouthminds',
+                    site: '@africanyouthminds',
+                    cardType: 'summary_large_image',
+                }}
+            />
             <div className="container-fluid">
                 <div className="row">
 

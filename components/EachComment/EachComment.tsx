@@ -22,6 +22,7 @@ function EachComment({ data, auth }: Props): ReactElement {
     const [comment_text, set_comment_text] = useState<string>(data.comment_text);
     const [commentLoading, setCommentLoding] = useState<boolean>(false);
     const [commentDeleted, setCommentDeleted] = useState<boolean>(false);
+    const [editedComment, setEditedComment] = useState<string>(comment_text);
 
     const deleteComment = () => {
         setCommentLoding(true);
@@ -34,10 +35,31 @@ function EachComment({ data, auth }: Props): ReactElement {
         })
             .then(res => {
                 setCommentLoding(false);
-                setCommentDeleted(true)
+                setCommentDeleted(true);
             })
             .catch(err => {
                 setCommentLoding(false);
+            })
+    };
+
+    const updateComment = () => {
+        setCommentLoding(true)
+        axios(Global.API_URL + `/comments/${data.id}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${Cookies.get('_token')}`
+            },
+            data: {
+                comment_text: editedComment,
+            }
+        })
+            .then(res => {
+                setEdit(false);
+                setCommentLoding(false);
+                set_comment_text(res.data.comment_text);
+            })
+            .catch(err => {
+                setCommentLoding(false)
             })
     }
 
@@ -70,32 +92,42 @@ function EachComment({ data, auth }: Props): ReactElement {
                                     <div className="form-group">
                                         <textarea
                                             name="comment"
+                                            disabled={commentLoading}
                                             id="comment"
                                             cols={30}
+                                            maxLength={200}
                                             rows={2}
                                             className="form-control"
                                             placeholder="Comment*"
                                             required
-                                            defaultValue={comment_text}
-                                            onChange={e => set_comment_text(e.target.value)}
+                                            defaultValue={editedComment}
+                                            onChange={e => setEditedComment(e.target.value)}
                                         />
                                     </div>
                                 </div>
                             </form> :
                             <p>
-                                {data.comment_text}
+                                {comment_text}
                             </p>
                     }
                     {
                         auth.user && !edit && data.users_permissions_user.id === auth.user.id ? <div>
-                            <button onClick={() => setConfirmDelete(true)} className="link btn"> <i className="fa fa-trash mr-1 mt-1 mb-1"></i> Delete</button>
-                            <button onClick={() => setEdit(true)} className="link btn bg-success ml-3"> <i className="fa fa-pen mr-1 mt-1 mb-1"></i> Edit</button>
+                            <button disabled={commentLoading} onClick={() => setConfirmDelete(true)} className="link btn">
+                                <i className="fa fa-trash mr-1 mt-1 mb-1"></i> Delete
+                            </button>
+                            <button disabled={commentLoading} onClick={() => setEdit(true)} className="link btn bg-success ml-3">
+                                <i className="fa fa-pen mr-1 mt-1 mb-1"></i> Edit
+                            </button>
                         </div> : null
                     }
                     {
                         auth.user && edit && data.users_permissions_user.id === auth.user.id ? <div>
-                            <button onClick={() => setEdit(false)} className="link btn"> <i className="fa fa-times mr-1 mt-1 mb-1"></i> Cancel</button>
-                            <button className="link btn bg-success ml-3"> <i className="fa fa-save mr-1 mt-1 mb-1"></i> Save</button>
+                            <button disabled={commentLoading} onClick={() => setEdit(false)} className="link btn">
+                                <i className="fa fa-times mr-1 mt-1 mb-1"></i> Cancel
+                            </button>
+                            <button onClick={updateComment} disabled={commentLoading} className="link btn bg-success ml-3">
+                                <i className="fa fa-save mr-1 mt-1 mb-1"></i>{commentLoading ? "Loading..." : "Save"}
+                            </button>
                         </div> : null
                     }
                 </div>
