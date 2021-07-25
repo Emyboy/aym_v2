@@ -50,7 +50,7 @@ export default function SidePanel(props: Props): ReactElement {
                     }
                 </ul>
             </div>
-            <Sticky stickyStyle={{ marginTop: '9vh' }}>
+            <Sticky stickyStyle={{ marginTop: '5vh' }}>
             <div className="widget ">
                 <div className="section-title">
                     <h5>Popular Posts</h5>

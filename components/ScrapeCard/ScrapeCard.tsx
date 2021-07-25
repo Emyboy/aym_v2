@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { ReactElement } from 'react'
 
 interface Props {
@@ -9,14 +10,14 @@ export default function ScrapeCard({ post }: Props): ReactElement {
         <div className='col-lg-6 col-md-6'>
             <div className="post-card mt-5">
                 <div className="post-card-image">
-                    <a href="post-default.html">
+                    <Link href={`/netn${post.link}`}>
                         <img src={post.image_url} alt="" />
-                    </a>
+                    </Link>
                 </div>
                 <div className="post-card-content">
-                    <a href="blog-grid.html" className="categorie">Food</a>
+                    <a className="categorie text-white">Imported</a>
                     <h5>
-                        <a href="post-default.html">{post.name}</a>
+                        <Link href={`/netn${post.link}`}>{post.name}</Link>
                     </h5>
                     {/* <p>{post.description}</p> */}
                     {/* <div className="post-card-info">

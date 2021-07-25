@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Link from 'next/link'
 import React, { ReactElement, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import Global from '../../Global'
@@ -39,13 +40,23 @@ function Search({ app }: Props): ReactElement {
         return <ul className="widget-latest-posts border-bottom">
             <li className="last-post">
                 <div className="image">
-                    <a href="post-default.html">
-                        <img src={result.image_url} alt="..." />
-                    </a>
+                    <Link href={result.link}>
+                        <img src={'netn'+result.image_url} alt="..." onClick={() => store.dispatch({
+                            type: SET_APP_STATE,
+                            payload: {
+                                showSearch: false
+                            }
+                        })} />
+                    </Link>
                 </div>
                 <div className="content">
-                    <p>
-                        <a href="post-default.html">{result.name}</a>
+                    <p onClick={() => store.dispatch({
+                        type: SET_APP_STATE,
+                        payload: {
+                            showSearch: false
+                        }
+                    })}>
+                        <Link href={'netn'+result.link}>{result.name}</Link>
                     </p>
                     <small>
                         {result.description}
@@ -57,7 +68,7 @@ function Search({ app }: Props): ReactElement {
 
     useEffect(() => {
         seasrch()
-    }, [keyword])
+    }, [keyword]);
 
 
     return (
