@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import { PostItem } from '../../types/Post.types'
+import { ScrapePost } from '../../types/ScrapeType'
 import PostCardLG from '../EachPost/PostCardLG'
 import Heading from '../Heading/Heading'
 import ScrapeCard from '../ScrapeCard/ScrapeCard'
