@@ -25,7 +25,7 @@ export default function NetDetailsPage({ data }: Props): ReactElement {
                             <div className="post-single-content">
                                 <a href="blog-grid.html" className="categorie">travel</a>
                                 <h4>{data.title} </h4>
-                                <div className="post-single-info">
+                                {/* <div className="post-single-info">
                                     <ul className="list-inline">
                                         <li><a href="author.html"><img src="https://uptime.com/media/website_profiles/thenetnaija.com.png" alt="" /></a></li>
                                         <li><a href="author.html">thenetnaija</a> </li>
@@ -34,7 +34,7 @@ export default function NetDetailsPage({ data }: Props): ReactElement {
                                         <li className="dot"></li>
                                         <li>3 comments</li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="post-single-body">
