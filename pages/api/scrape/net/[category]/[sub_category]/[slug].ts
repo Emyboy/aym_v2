@@ -40,7 +40,7 @@ export default function handler(
                         image_url: $(el).find('article figure img').attr('src'),
                         description: $(el).find('article p').text(),
                         iframe: $(el).find('.video-player-con .video-player iframe').attr('src'),
-                        downloadUrl: process.env.SCRAPE_URL+$(el).find('.download-block-con .download-block .db-main .db-one a').attr('href'),
+                        downloadUrl: `${process.env.SCRAPE_URL}${$(el).find('.download-block-con .download-block .db-main .db-one a').attr('href')}`,
                     });
                 });
                 console.log('LIST --', list)

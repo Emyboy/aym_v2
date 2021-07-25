@@ -11,14 +11,14 @@ export default function handler(
     try {
         const keyword: any = req.query.keyword;
         const url = `${process.env.SCRAPE_URL}/search?t=${keyword.replace(' ', '+')}`;
-
+        const scrapUrl = process.env.SCRAPE_URL;
         request(url, (err, response: any, html) => {
             if (!err) {
                 const $ = cheerio.load(html);
                 const list: any[] = [];
                 $('.search-results article').each((i, el) => {
                     const name: string = $(el).find('.info h3').text().replace(/\s\s+/g, '');
-                    const link: any = $(el).find('.info h3 a').attr('href').split(process.env.SCRAPE_URL)[1];
+                    const link = `${$(el).find('.info h3 a').attr('href')}`.split(`${scrapUrl}`)[1];
                     const description: string = $(el).find('.info .excerpt').text().replace(/\s\s+/g, '');
                     const image_url = $(el).find('.thumbnail img').attr('src');
                     list.push({ name, image_url, content_type: 'music', description, link });
