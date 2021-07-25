@@ -43,7 +43,7 @@ export default function NetDetailsPage({ data }: Props): ReactElement {
                             </div>
                             {
                                 data.downloadUrl ? <div className="text-center">
-                                    <a href={data.downloadUrl} target="_blank">
+                                    <a href={data.downloadUrl}>
                                         <button className="btn btn-danger shadow">Download Now</button>
                                     </a>
                                 </div> : null
