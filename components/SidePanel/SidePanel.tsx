@@ -33,7 +33,7 @@ export default function SidePanel(props: Props): ReactElement {
     }, [])
 
     return (
-        <div className="col-lg-4 max-width">
+        <div className="col-lg-4 max-width" style={{ marginTop: '10vh' }}>
             <AdminCard />
             <div className="widget">
                 <div className="section-title">
@@ -51,20 +51,20 @@ export default function SidePanel(props: Props): ReactElement {
                 </ul>
             </div>
             <Sticky stickyStyle={{ marginTop: '9vh' }}>
-                <div className="widget ">
-                    <div className="section-title">
-                        <h5>Popular Posts</h5>
-                    </div>
-                    <ul className="widget-latest-posts">
-                        {
-                            posts.map((val, i) => {
-                                return <EachPostSM key={i} index={i} post={val} />
-                            })
-                        }
-                    </ul>
+            <div className="widget ">
+                <div className="section-title">
+                    <h5>Popular Posts</h5>
                 </div>
+                <ul className="widget-latest-posts">
+                    {
+                        posts.map((val, i) => {
+                            return <EachPostSM key={i} index={i} post={val} />
+                        })
+                    }
+                </ul>
+            </div>
 
-                {/* <div className="widget">
+            {/* <div className="widget">
                     <div className="section-title">
                         <h5>Tags</h5>
                     </div>
@@ -77,8 +77,6 @@ export default function SidePanel(props: Props): ReactElement {
                     </div>
                 </div> */}
             </Sticky>
-
-
         </div>
     )
 }
