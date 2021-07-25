@@ -28,7 +28,7 @@ export default function handler(
                 const list: EachPost[] = [];
                 $('.post-entries article').each((i, el) => {
                     const name: string = $(el).find('.info h2').text().replace(/\s\s+/g, '');
-                    const link: string[1] = $(el).find('.info h2 a').attr('href').split(process.env.SCRAPE_URL)[1]
+                    const link: string[1] = `${$(el).find('.info h2 a').attr('href')}`.split(`${process.env.SCRAPE_URL}`)[1]
                     const category: string = $(el).find('.info .category').text().replace(/\s\s+/g, '');
                     const image_url = $(el).find('.thumbnail img').attr('src');
                     list.push({ name, category, image_url, content_type: 'article', description: name, link });
