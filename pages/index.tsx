@@ -31,7 +31,7 @@ const HomePage = (props: Props): ReactElement => {
               heading='Category'
               headingValue='New'
             />
-            <CategoryList
+            {/* <CategoryList
               list={videos}
               scraped
               heading='Category'
@@ -48,7 +48,7 @@ const HomePage = (props: Props): ReactElement => {
               scraped
               heading='Category'
               headingValue='Article'
-            />
+            /> */}
           </div>
           <SidePanel />
         </div>
@@ -63,24 +63,21 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(Global.API_URL + '/posts?_sort=created_at:DESC&_limit=20');
   const data: PostItem[] = await res.json();
 
-  const netRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/scrape/category/videos`);
-  const videos: ScrapePost[] = await netRes.json();
+  // const netRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/scrape/category/videos`);
+  // const videos: ScrapePost[] = await netRes.json();
 
-  const musicRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/scrape/category/music`);
-  const music: ScrapePost[] = await musicRes.json();
+  // const musicRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/scrape/category/music`);
+  // const music: ScrapePost[] = await musicRes.json();
 
-  const postsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/scrape/category/posts`);
-  const posts: ScrapePost[] = await postsRes.json();
-
-  // console.log('Music ---', music)
-
+  // const postsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/scrape/category/posts`);
+  // const posts: ScrapePost[] = await postsRes.json();
 
   return {
     props: {
       data,
-      videos,
-      music,
-      posts
+      // videos,
+      // music,
+      // posts
     },
   }
 }

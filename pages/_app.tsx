@@ -12,13 +12,21 @@ import Footer from '../components/Footer';
 import Search from '../components/Search/Search';
 import { Provider } from 'react-redux';
 import store from '../redux/store/store';
+import PageLoading from '../components/PageLoading/PageLoading';
+import { useRouter } from 'next/router'
+import React from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [pageLoading, setPageLoading] = React.useState(false)
+  const router = useRouter()
+  router.events.on('routeChangeStart', () => setPageLoading(true))
+  router.events.on('routeChangeComplete', () => setPageLoading(false))
   return <>
     <Provider store={store}>
       <Navbar />
       <Search />
       <Component {...pageProps} />
+      {pageLoading ? <PageLoading /> : null}
       <Footer />
     </Provider>
   </>

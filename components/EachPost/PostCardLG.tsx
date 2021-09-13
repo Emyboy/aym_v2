@@ -22,7 +22,7 @@ const PostCardLG = (props: PostCardLGProps): ReactElement => {
                 </div>
                 <div className="post-card-content">
                     {
-                        post.category ? <Link passHref href="/category/id">
+                        post.category ? <Link passHref href={`/category/${post.category.id}`}>
                             <a className="categorie">{post.category.name}</a>
                         </Link> : null
                     }

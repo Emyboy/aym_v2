@@ -21,13 +21,10 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps): ReactElement => {
 
-    const { auth } = props;
+    const { auth, LoginWithGoogle } = props;
     const [dropdown, setDropdown] = useState(false);
 
     useEffect(() => {
-        if (!auth.user) {
-            props.LoginWithGoogle();
-        };
         props.getAllCategories()
     }, []);
 
@@ -61,6 +58,7 @@ const Navbar = (props: NavbarProps): ReactElement => {
                             <a className="nav-link" href="contact.html"> Contact </a>
                         </li>
 
+
                         {
                             auth.user ? <>
                                 <li className="nav-item">
@@ -73,7 +71,11 @@ const Navbar = (props: NavbarProps): ReactElement => {
                                         <a className="nav-link"> Compose </a>
                                     </Link>
                                 </li>
-                            </> : null
+                            </> : <>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#login" onClick={() => LoginWithGoogle()}> Login </a>
+                                </li>
+                            </>
                         }
 
                     </ul>

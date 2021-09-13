@@ -152,7 +152,7 @@ const Editor = (props => {
                         </div>
                         <div className="row row--10 mb-3">
                             <div className='col-md-6'>
-                                <label>Select An Image</label>
+                                <label>Select A Category</label>
                                 <DropdownSelect
                                     label='Category'
                                     value={data.category}

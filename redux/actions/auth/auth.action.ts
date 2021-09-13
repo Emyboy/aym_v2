@@ -6,12 +6,14 @@ import Global from '../../../Global';
 import initFirebase from "../../../services/Firebase";
 import { LOGIN_USER } from './auth.action.types'
 initFirebase();
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export const loginWithGooglePopup = () => async (dispatch: Dispatch) => {
+    const username = uuidv4()
     const result: any = await firebase.auth().signInWithPopup(provider);
     // console.log(result);
     const user = result.user.providerData;
@@ -43,7 +45,7 @@ export const loginWithGooglePopup = () => async (dispatch: Dispatch) => {
                 axios(Global.API_URL + "/auth/local/register", {
                     method: 'POST',
                     data: {
-                        username: user[0].uid,
+                        username: `${username}@${user[0].displayName.split(' ')[1]}`,
                         email: user[0].email,
                         password: user[0].uid,
                         first_name: user[0].displayName.split(' ')[0],

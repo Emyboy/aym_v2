@@ -112,11 +112,6 @@ export default function NetDetailsPage({ data }: Props): ReactElement {
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
                     <SidePanel />
                 </div>
