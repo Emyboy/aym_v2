@@ -1,4 +1,4 @@
-import { UserPremission } from "./UserPremission.types";
+import { UserPermission } from "./UserPermission.types";
 
 export interface PostItem {
     id: number;
@@ -8,7 +8,7 @@ export interface PostItem {
     src: string;
     category: PostCategory;
     categories: PostCategory[];
-    users_permissions_user: UserPremission;
+    users_permissions_user: UserPermission;
     created_at: string;
     storage_id: string;
     content_type: string;

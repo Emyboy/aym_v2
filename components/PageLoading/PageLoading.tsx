@@ -6,6 +6,13 @@ interface Props {
 }
 
 export default function PageLoading({}: Props): ReactElement {
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 100,
+            behavior: 'smooth'
+        });
+    },[])
     return (
         <div id='page-loader' className='text-center'>
             <span>

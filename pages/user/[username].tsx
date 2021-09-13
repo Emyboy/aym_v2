@@ -2,14 +2,14 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import Img from 'next/image';
 import { connect } from 'react-redux';
 import { ReduxState } from '../../redux/store/state.type';
-import { AuthStateType, UserPremission } from '../../redux/reducers/auth/auth.reducer.types';
+import { AuthStateType, UserPermission } from '../../redux/reducers/auth/auth.reducer.types';
 import { GetServerSideProps } from 'next';
 import Global from '../../Global';
 import PageNotFound from '../../components/PageNotFound';
 
 interface Props {
     auth: AuthStateType;
-    data: UserPremission[];
+    data: UserPermission[];
 }
 
 function UserProfile({ auth, data }: Props): ReactElement {
@@ -29,10 +29,10 @@ function UserProfile({ auth, data }: Props): ReactElement {
                                         <Img src={user.avatar_url} alt="" width={500} height={500} />
                                     </a>
                                     <h6><span>{user.first_name} {user.last_name}</span></h6>
-                                    <div className="link">13 Articles</div>
+                                    {/* <div className="link">13 Articles</div> */}
                                     <p>{user.bio}</p>
     
-                                    <div className="social-media">
+                                    {/* <div className="social-media">
                                         <ul className="list-inline">
                                             <li>
                                                 <a href="#" className="color-facebook">
@@ -60,7 +60,7 @@ function UserProfile({ auth, data }: Props): ReactElement {
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ const mapStateToProps = (state: ReduxState) => ({
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { username } = ctx.query;
     const user = await fetch(Global.API_URL + `/users/?username=${username}`);
-    const data: UserPremission[] = await user.json()
+    const data: UserPermission[] = await user.json()
 
     return {
         props: {

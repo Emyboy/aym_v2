@@ -19,15 +19,23 @@ import React from 'react';
 function MyApp({ Component, pageProps }: AppProps) {
   const [pageLoading, setPageLoading] = React.useState(false)
   const router = useRouter()
-  router.events.on('routeChangeStart', () => setPageLoading(true))
-  router.events.on('routeChangeComplete', () => setPageLoading(false))
+  React.useEffect(() => {
+    router.events.on('routeChangeStart', () => setPageLoading(true))
+    router.events.on('routeChangeComplete', () => setPageLoading(false))
+    return () => {
+      router.events.off('routeChangeStart', () => setPageLoading(false))
+    }
+  }, [])
   return <>
     <Provider store={store}>
-      <Navbar />
-      <Search />
-      <Component {...pageProps} />
-      {pageLoading ? <PageLoading /> : null}
-      <Footer />
+
+      {pageLoading ? <PageLoading /> : <>
+        <Navbar />
+        <Search />
+        <Component {...pageProps} />
+        <Footer />
+      </>
+      }
     </Provider>
   </>
 }

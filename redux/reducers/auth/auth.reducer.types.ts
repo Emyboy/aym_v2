@@ -1,10 +1,10 @@
 
 
 export interface AuthStateType {
-    user: UserPremission;
+    user: UserPermission;
 }
 
-export interface UserPremission {
+export interface UserPermission {
     id: number;
     username: string;
     first_name: string;

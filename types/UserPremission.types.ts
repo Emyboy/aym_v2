@@ -1,6 +1,6 @@
 
 
-export interface UserPremission {
+export interface UserPermission {
     id: number;
     bio: string;
     avatar_url: string;

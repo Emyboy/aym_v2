@@ -35,12 +35,16 @@ const PostCardLG = (props: PostCardLGProps): ReactElement => {
                         post.users_permissions_user ? <div className="post-card-info">
                             <ul className="list-inline">
                                 <li>
-                                    <a href="author.html">
-                                        <img src={post.users_permissions_user.avatar_url} alt={post.users_permissions_user.first_name} />
+                                    <a>
+                                        <Link href={`/user/${post.users_permissions_user.username}`}>
+                                            <img src={post.users_permissions_user.avatar_url} alt={post.users_permissions_user.first_name} />
+                                        </Link>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="author.html">{post.users_permissions_user.first_name} {post.users_permissions_user.last_name}</a>
+                                    <Link href={`/user/${post.users_permissions_user.username}`}>
+                                        <a>{post.users_permissions_user.first_name} {post.users_permissions_user.last_name}</a>
+                                    </Link>
                                 </li>
                                 <li className="dot"></li>
                                 <li>{moment(post.created_at).fromNow()}</li>

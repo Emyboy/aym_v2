@@ -6,7 +6,7 @@ import { CategoryTypes } from '../../types/Category.types';
 import axios from 'axios';
 import Global from '../../Global';
 import { PostItem } from '../../types/Post.types';
-
+import Link from 'next/link';
 
 interface Props {
 
@@ -43,7 +43,9 @@ export default function SidePanel(props: Props): ReactElement {
                     {
                         categories.map((val, i) => {
                             return <li key={i}>
-                                <a href="#" className="categorie">{val.name}</a>
+                                <Link href={`/category/${val.id}`}>
+                                <a className="categorie">{val.name}</a>
+                                </Link>
                                 <span className="ml-auto">{val.posts.length} Posts</span>
                             </li>
                         })

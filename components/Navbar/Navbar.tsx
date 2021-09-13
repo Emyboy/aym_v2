@@ -54,9 +54,9 @@ const Navbar = (props: NavbarProps): ReactElement => {
                                 <a className="nav-link"> Home </a>
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a className="nav-link" href="contact.html"> Contact </a>
-                        </li>
+                        </li> */}
 
 
                         {
